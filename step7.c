@@ -34,8 +34,14 @@ int main(void)
         for (i = 0; i < ac;i++) {
             if(strcmp(av[i], "exit") == 0) {
                 exit(0);
-            } else if (strcmp(ac[i], "cd") == 0) {
-                chdir(*(av[i])) ;
+            } else if (strcmp(av[i], "cd") == 0) {
+                if (av[i + 1] == '\0') {
+                    av[i + 1] = getenv("HOME");
+                } else if (strcmp(av[i + 1],  ".") == 0 ) {
+                    getcwd(av[i + 1], MAXWORDNUM);
+                }
+                printf("%s\n", av[i + 1]);
+                chdir(av[i + 1]);
             }
         }
 
