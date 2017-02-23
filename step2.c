@@ -55,5 +55,4 @@ void print_args(int ac, char** av)
     for(i = 0; i < ac; i++) {
     printf("%s\n", av[i]);
     }
-    printf("\n");
 }
